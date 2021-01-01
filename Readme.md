@@ -1,7 +1,7 @@
 # Личный проект «YetiCave»
 
 * Студент: [Ilgiz Yamaleev](https://up.htmlacademy.ru/php/12/user/1693271).
-* Наставник: `Неизвестно`.
+* Наставник: [Артем Комаров](https://htmlacademy.ru/profile/id1410933).
 
 ---
 
