@@ -2,10 +2,8 @@
 
 * Студент: [Ilgiz Yamaleev](https://up.htmlacademy.ru/php/12/user/1693271).
 <<<<<<< Updated upstream
-* Наставник: [Анастасия Смирнова] (https://htmlacademy.ru/profile/id232838).
-=======
-* Наставник: [Павел Гоголинский](https://htmlacademy.ru/profile/id8691).
->>>>>>> Stashed changes
+* Наставник: [Анастасия Смирнова](https://htmlacademy.ru/profile/id232838).
+
 
 
 ---
