@@ -134,7 +134,14 @@ $user_name = 'Ильгиз';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">цена<b class="rub">р</b></span>
+                            <span class="lot__cost">цена<
+                            <?php
+                                                            var_dump(round($int, 3));
+                                                            number_format ( float $<="1000" , int $decimals = 3 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
+                                                            number_format ( float $>="1000" , int $decimals = 0 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
+                                                            setlocale(LC_MONETARY, 'ru_RU');
+                                                        ?>
+                            </span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
