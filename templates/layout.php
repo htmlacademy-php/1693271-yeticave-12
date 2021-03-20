@@ -4,6 +4,27 @@ $is_auth = rand(0, 1);
 $user_name = 'Ильгиз'; 
 ?>
 
+<?php $ timer = [
+
+$ session_start (date ('H-m-d, H:i:s'));
+$ session_end (date ("datetime"));
+
+    if (! isset ($ _SESSION ['countdown'])) {
+        $ _SESSION ['countdown'] = ("$ session_end");
+        $ _SESSION ['time_started'] = time('$ session_start');
+    }
+    $ remainingSeconds = abc ($ session_end] - $ session_start);
+    echo '$ remainingSeconds -> format( "%Y"-%m-%d, %H:%i:%s )';
+     if ($ remainingSeconds < 1) {
+        $ remainingSeconds--finishing;
+        echo 'Время вышло';
+        
+     }
+    ];
+
+?>
+
+
   <?php
              $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
              [
@@ -11,40 +32,46 @@ $user_name = 'Ильгиз';
                         "product"=>
                         [[   "name" => "2014 Rossignol District Snowboard", 
                              "price" => "10999",
-                             "image"=> '<img src="img/lot-1.jpg">'],
+                             "image"=> '<img src="img/lot-1.jpg">'
+                             "datetime"=> "2021-03-25"],
 
                     ["$category" => 0,
                         [[   "name" => "Dc Ply Mens 2016/2017 Snowboard",
                              "price" => "159999",
-                             "image"=> '<img scr="img/lot-2.jpg">',]
+                             "image"=> '<img scr="img/lot-2.jpg">'
+                             "datetime"=> "2021-03-30",]
                         ]],
 
                     ["$category" => 1,
                         "product" => 
                         [	"name" => "Крепление Union Contace Pro 2015 года размер L/XL",
                             "price" => "8000",
-                            "image"=> '<img scr="img/lot-3.jpg">',
+                            "image"=> '<img scr="img/lot-3.jpg">'
+                            "datetime"=> "2021-03-23",
                         ]],
 
                     ["$category" => 2,
                         "product" =>
                          [ 	"name" => "Ботинки для сноуборда DC Mutiny Charocal",
                             "price" => "10999",
-                            "image"=> '<img scr="img/lot-4.jpg">',
+                            "image"=> '<img scr="img/lot-4.jpg">'
+                            "datetime"=> "2021-03-29",
                         ]],
 
                     ["$category" => 3,
                         "product" =>
                         [   "name" => "Куртка для сноуборда DC Multiny Charocal",
                             "price" => "7500",
-                            "image"=> '<img scr="img/lot-5.jpg">',
+                            "image"=> '<img scr="img/lot-5.jpg">'
+                            "datetime"=> "2021-03-27",
                         ]], 
                         
                     ["$category" => 4,
                         "product" =>
                         [ 	"name" => "Маска Oakley Canopy",
                             "price" => "5400",
-                            "image"=> '<img scr="img/lot-6.jpg">',
+                            "image"=> '<img scr="img/lot-6.jpg">'
+                            "datetime"=> "2021-03-20",
                         ]],
                     ];
             ?>
@@ -145,11 +172,11 @@ $user_name = 'Ильгиз';
                                                             number_format ( float $<="1000" , int $decimals = 3 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
                                                             number_format ( float $>="1000" , int $decimals = 0 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
                                                             setlocale(LC_MONETARY, 'ru_RU');
-                                                        ?>
+                            ?>
                             </span>
                         </div>
                         <div class="lot__timer timer">
-                            12:23
+                        <? echo "$ timer ->  format(%H:%i)"; ?>
                         </div>
                     </div>
                 </div>
