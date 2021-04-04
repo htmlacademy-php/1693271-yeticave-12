@@ -30,7 +30,8 @@ create table user (
     password CHAR(60) not null,
     phone char (255) not null,
 );
-SELECT id FROM user JOIN lot ON id=id;
-SELECT id FROM category JOIN lot ON id=id;
-SELECT id FROM user JOIN rte ON id=id;
+SELECT * FROM lot INNER JOIN user  using (id);
+SELECT * FROM category INNER JOIN lot using (id);
+SELECT * FROM user INNER JOIN rte  using (id);
+
 
