@@ -28,21 +28,21 @@ $user_name = 'Ilgiz'; // укажите здесь ваше имя
 
         <nav class="user-menu">
         <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
-        <?php if($is_auth == 1): ?>
-                            <div class="user-menu_logged">
-                            <p> <?php echo '$user_name' ?> </p>
-                            <a class="user-menu_bets" href="pages/my-best.html"> Мои ставки </a>
-                            <a class="user-menu_logout" href="#"> Выход </a>
-                            </div>
-                        <?php else: ?>
-                            <ul class="user-menu_list">
-                                <li class="user-menu_item">
-                                    <a herf="#"> Регистрация </a>
-                                </li>
-                                <li class="user-menu_item"> 
-                                    <a herf="#"> Вход </a>
-                                </li>
-                            </ul>
+                <?php if ($is_auth == 1): ?>
+                    <div class="user-menu_logged">
+                        <p> <?php echo $user_name ?> </p>
+                        <a class="user-menu_bets" href="pages/my-best.html"> Мои ставки </a>
+                        <a class="user-menu_logout" href="#"> Выход </a>
+                    </div>
+                <?php else: ?>
+                    <ul class="user-menu_list">
+                        <li class="user-menu_item">
+                        <a herf="#"> Регистрация </a>
+                        </li>
+                        <li class="user-menu_item"> 
+                        <a herf="#"> Вход </a>
+                        </li>
+                    </ul>
                 <?php endif; ?>
         </nav>
     </div>
