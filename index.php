@@ -1,10 +1,8 @@
 <?php
 $is_auth = rand(0, 1);
 
-$user_name = 'Ильгиз'; 
-?>
+$user_name = 'Ильгиз'; // укажите здесь ваше имя
 
-<?php
              $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
              [
                    ["$category" => 0,
@@ -25,7 +23,7 @@ $user_name = 'Ильгиз';
                             "price" => "8000",
                             "image"=> '<img scr="img/lot-3.jpg">',
                         ]],
-
+                         
                     ["$category" => 2,
                         "product" =>
                          [ 	"name" => "Ботинки для сноуборда DC Mutiny Charocal",
@@ -48,6 +46,42 @@ $user_name = 'Ильгиз';
                         ]],
                     ];
 ?>
+                         
+<header class="main-header">
+    <div class="main-header__container container">
+        <h1 class="visually-hidden">YetiCave</h1>
+        <a class="main-header__logo">
+            <img src="../img/logo.svg" width="160" height="39" alt="Логотип компании YetiCave">
+        </a>
+        <form class="main-header__search" method="get" action="https://echo.htmlacademy.ru" autocomplete="off">
+            <input type="search" name="search" placeholder="Поиск лота">
+            <input class="main-header__search-btn" type="submit" name="find" value="Найти">
+        </form>
+        <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
+      
+        <nav class="user-menu">
+        <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
+                <?php if ($is_auth == 1): ?>
+                    <div class="user-menu_logged">
+                        <p> <?php echo $user_name ?> </p>
+                        <a class="user-menu_bets" href="pages/my-best.html"> Мои ставки </a>
+                        <a class="user-menu_logout" href="#"> Выход </a>
+                    </div>
+                <?php else: ?>
+                    <ul class="user-menu_list">
+                        <li class="user-menu_item">
+                        <a herf="#"> Регистрация </a>
+                        </li>
+                        <li class="user-menu_item"> 
+                        <a herf="#"> Вход </a>
+                        </li>
+                    </ul>
+                <?php endif; ?>
+        </nav>
+    </div>
+</header>
+
+
 
 <?php foreach($products as $product): ?>
     <?php echo $product["name"] ?>
@@ -56,25 +90,6 @@ $user_name = 'Ильгиз';
     <?php endforeach; 
 ?>
 
- <?php if($is_auth == 1) {
-            echo '
-                    <div class="user-menu__logged">
-                        <p>#Ilgiz#</p>
-                        <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
-                        <a class="user-menu__logout" href="#">Выход</a>
-                    </div>
-                    ';
-                     } elseif($is_auth == 0) {
-                         echo '
-                    <ul class="user-menu__list">
-                        <li class="user-menu__item">
-                             <a href="#">Регистрация</a>
-                        </li>
-                        <li class="user-menu__item">
-                            <a href="#">Вход</a>
-                         </li>
-                  </ul>';}
-?>
            
             <?php foreach($categories as $value): ?>
                 <il> <?php echo $categories['$value']?> </il>
