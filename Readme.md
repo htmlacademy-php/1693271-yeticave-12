@@ -1,7 +1,10 @@
 # Личный проект «YetiCave»
 
 * Студент: [Ilgiz Yamaleev](https://up.htmlacademy.ru/php/12/user/1693271).
+
 * Наставник: [Анвар Кабиров](https://htmlacademy.ru/profile/id1452397).
+=======
+
 
 ---
 
