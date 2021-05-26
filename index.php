@@ -3,47 +3,48 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Ильгиз'; // укажите здесь ваше имя
 
-             $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
-             [
-                   ["$category" => 0,
-                        "product"=>
-                        [[   "name" => "2014 Rossignol District Snowboard", 
-                             "price" => "10999",
-                             "image"=> '<img src="img/lot-1.jpg">'],
+             $category = array (1=>"Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное");
+             
+                   $category [] =[
+                            'name' => '2014 Rossignol District Snowboard', 
+                            'price' => '10999',
+                            'image'=> 'lot-1.jpg',
+                            'category_id' => 1,
+                   ];
 
-                    ["$category" => 0,
-                        [[   "name" => "Dc Ply Mens 2016/2017 Snowboard",
-                             "price" => "159999",
-                             "image"=> '<img scr="img/lot-2.jpg">',]
-                        ]],
+                    $category [] => [
+                            'name' => 'Dc Ply Mens 2016/2017 Snowboard',
+                            'price' => '159999',
+                            'image'=> 'lot-2.jpg',
+                            'category_id' => ,
+                    ];
 
-                    ["$category" => 1,
-                        "product" => 
-                        [	"name" => "Крепление Union Contace Pro 2015 года размер L/XL",
-                            "price" => "8000",
-                            "image"=> '<img scr="img/lot-3.jpg">',
-                        ]],
+                    $category [] => [
+                        [	'name' =>'Крепление Union Contace Pro 2015 года размер L/X',
+                            'price' => '8000',
+                            'image'=> 'lot-3.jpg',
+                            'category_id' => ,
+                    ];
                          
-                    ["$category" => 2,
-                        "product" =>
-                         [ 	"name" => "Ботинки для сноуборда DC Mutiny Charocal",
-                            "price" => "10999",
-                            "image"=> '<img scr="img/lot-4.jpg">',
-                        ]],
+                    $category [] => [
+                            'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
+                            'price' => '10999',
+                            'image'=> 'lot-4.jpg',
+                            'category_id' => ,
+                    ];
 
-                    ["$category" => 3,
-                        "product" =>
-                        [   "name" => "Куртка для сноуборда DC Multiny Charocal",
-                            "price" => "7500",
-                            "image"=> '<img scr="img/lot-5.jpg">',
-                        ]], 
+                    $category [] => [
+                            'name' => 'Куртка для сноуборда DC Multiny Charocal',
+                            'price' => '7500',
+                            'image'=> 'lot-5.jpg',
+                            'category_id' => ,
+                    ];
                         
-                    ["$category" => 4,
-                        "product" =>
-                        [ 	"name" => "Маска Oakley Canopy",
-                            "price" => "5400",
-                            "image"=> '<img scr="img/lot-6.jpg">',
-                        ]],
+                    $category [] => [
+                         	'name' => 'Маска Oakley Canopy',
+                            'price' => '5400',
+                            'image'=> 'lot-6.jpg',
+                            'category_id' => ,
                     ];
 ?>
                          
@@ -81,22 +82,23 @@ $user_name = 'Ильгиз'; // укажите здесь ваше имя
         </nav>
 
     </div>
-</header>
+</header
 
 
 
-<?php foreach($products as $product): ?>
-    <?php echo $product["name"] ?>
-    <?php echo $product["product"]["price"]?>
-    <?php echo $product["product"]["image"]?>
-    <?php endforeach; 
-?>
+            <?php foreach($products as $product): ?>
+                <?php echo $product["name"] ?>
+                <?php echo $product["product"]["price"]?>
+                <?php echo $product["product"]["image"]?>
+                <?php endforeach; 
+            ?>
 
            
-            <?php foreach($categories as $value): ?>
-                <il> <?php echo $categories['$value']?> </il>
-                <?php endforeach; ?>
-                //конец кода
+            <?php foreach($category as $row) {
+                echo '<p>' . $row ['name'] . '|' .$row ['category_id'] '|' . .$row ['price'] . '|' .$row ['image']; 
+            }
+            ?>
+            
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
             </li>
@@ -112,7 +114,7 @@ $user_name = 'Ильгиз'; // укажите здесь ваше имя
             <il> <?php echo $categories['$value']?> </il>
             <?php endforeach; ?>
 
-<?php 
-    include_template ("main.php" , "layout.php"); 
-        layout('html' , '$user_name' , 'tilte');
-?>
+            <?php 
+                include_template ("main.php" , "layout.php"); 
+                layout('html' , '$user_name' , 'tilte');
+            ?>
