@@ -57,7 +57,7 @@ function showPrice($number) { // второй вариант функции
     else {
         $sum = '';
         while ($number) {
-            $sum = substr($number,-3) . ' ' . $sum;
+            $sum = $sum . ' ' . substr($number,-3);
             $number = substr($number,0,-3);
         }
     }
