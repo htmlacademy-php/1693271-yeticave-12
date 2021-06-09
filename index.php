@@ -1,101 +1,66 @@
 <?php
+
 $is_auth = rand(0, 1);
 
-$user_name = 'Ильгиз'; 
-?>
+$user_name = 'Ильгиз'; // укажите здесь ваше имя
+$img_path = 'img/'; // путь к рисункам. Для сокращения длины данных в массиве
 
-<?php
-             $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
-             [
-                   ["$category" => 0,
-                        "product"=>
-                        [[   "name" => "2014 Rossignol District Snowboard", 
-                             "price" => "10999",
-                             "image"=> '<img src="img/lot-1.jpg">'],
+// массивы данных
+$categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+$lots_list = [
+    [
+        'name' => '2014 Rossignol District Snowboard',
+        'category_id' => 1,
+        'price' => 10999,
+        'img' => 'lot-1.jpg',
+    ],
+    [
+        'name' => 'DC Ply Mens 2016/2017 Snowboard',
+        'category_id' => 1,
+        'price' => 159999,
+        'img' => 'lot-2.jpg',
+    ],
+    [
+        'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
+        'category_id' => 2,
+        'price' => 8000,
+        'img' => 'lot-3.jpg',
+    ],
+    [
+        'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
+        'category_id' => 3,
+        'price' => 10999,
+        'img' => 'lot-4.jpg',
+    ],
+    [
+        'name' => 'Куртка для сноуборда DC Mutiny Charocal',
+        'category_id' => 4,
+        'price' => 7500,
+        'img' => 'lot-5.jpg',
+    ],
+    [
+        'name' => 'Маска Oakley Canopy',
+        'category_id' => 6,
+        'price' => 5400,
+        'img' => 'lot-6.jpg',
+    ],
+];
 
-                    ["$category" => 0,
-                        [[   "name" => "Dc Ply Mens 2016/2017 Snowboard",
-                             "price" => "159999",
-                             "image"=> '<img scr="img/lot-2.jpg">',]
-                        ]],
+require_once('helpers.php');
 
-                    ["$category" => 1,
-                        "product" => 
-                        [	"name" => "Крепление Union Contace Pro 2015 года размер L/XL",
-                            "price" => "8000",
-                            "image"=> '<img scr="img/lot-3.jpg">',
-                        ]],
+// фильтруем входящие данные
+$categories = array_map('esc',$categories);
+foreach ($lots_list as &$lot) {
+    $lot['name'] = esc($lot['name']);
+    $lot['category_id'] = intval($lot['category_id']);
+    $lot['price'] = intval($lot['price']);
+    $lot['img'] = esc($lot['img']);
+}
+unset($lot);
 
-                    ["$category" => 2,
-                        "product" =>
-                         [ 	"name" => "Ботинки для сноуборда DC Mutiny Charocal",
-                            "price" => "10999",
-                            "image"=> '<img scr="img/lot-4.jpg">',
-                        ]],
+// формируем вывод
+$content = include_template('main.php', ['categories' => $categories, 'lots_list' => $lots_list, 'img_path' => $img_path]);
 
-                    ["$category" => 3,
-                        "product" =>
-                        [   "name" => "Куртка для сноуборда DC Multiny Charocal",
-                            "price" => "7500",
-                            "image"=> '<img scr="img/lot-5.jpg">',
-                        ]], 
-                        
-                    ["$category" => 4,
-                        "product" =>
-                        [ 	"name" => "Маска Oakley Canopy",
-                            "price" => "5400",
-                            "image"=> '<img scr="img/lot-6.jpg">',
-                        ]],
-                    ];
-?>
+$layout = include_template('layout.php', ['is_auth' => $is_auth, 'pageName' => 'YetiCave. Главная', 'user_name' => $user_name, 'content' => $content, 'categories' => $categories]);
 
-<?php foreach($products as $product): ?>
-    <?php echo $product["name"] ?>
-    <?php echo $product["product"]["price"]?>
-    <?php echo $product["product"]["image"]?>
-    <?php endforeach; 
-?>
-
- <?php if($is_auth == 1) {
-            echo '
-                    <div class="user-menu__logged">
-                        <p>#Ilgiz#</p>
-                        <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
-                        <a class="user-menu__logout" href="#">Выход</a>
-                    </div>
-                    ';
-                     } elseif($is_auth == 0) {
-                         echo '
-                    <ul class="user-menu__list">
-                        <li class="user-menu__item">
-                             <a href="#">Регистрация</a>
-                        </li>
-                        <li class="user-menu__item">
-                            <a href="#">Вход</a>
-                         </li>
-                  </ul>';}
-?>
-           
-            <?php foreach($categories as $value): ?>
-                <il> <?php echo $categories['$value']?> </il>
-                <?php endforeach; ?>
-                //конец кода
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
-            </li>
-       
-            <?php
-                var_dump(round($int, 3));
-                number_format ( float $<="1000" , int $decimals = 3 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
-                number_format ( float $>="1000" , int $decimals = 0 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
-                setlocale(LC_MONETARY, 'ru_RU');
-            ?>
-                            
-            <?php foreach($categories as $value): ?>
-            <il> <?php echo $categories['$value']?> </il>
-            <?php endforeach; ?>
-
-<?php 
-    include_template ("main.php" , "layout.php"); 
-        layout('html' , '$user_name' , 'tilte');
-?>
+print ($layout);
