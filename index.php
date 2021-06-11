@@ -57,12 +57,12 @@ function showPrice($number) { // второй вариант функции
     else {
         $sum = '';
         while ($number) {
-            $sum = $sum . ' ' . substr($number,-3);
+            $sum = substr($number,-3) . ' ' . $sum;
             $number = substr($number,0,-3);
         }
     }
 
-    $sum = $sum . ' ₽';
+    $sum = $sum . '₽';
 
     return $sum;
 }
@@ -145,7 +145,7 @@ function showPrice($number) { // второй вариант функции
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$lot['price'];?> <b class="rub">р</b></span> <? //Цена ?>
+                            <span class="lot__cost"><?=showPrice($lot['price']);?> </span> <? //Цена ?>
                         </div>
                         <div class="lot__timer timer">
                             12:23
