@@ -3,7 +3,7 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Ильгиз'; // укажите здесь ваше имя
 
-$img_path = 'img/'; //для URL картинок 
+$img_path = 'img/'; //для URL картинок
 
 //Список категории (счет начинается с 1):
 $category = [1 => 'Доски и лыжи', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
@@ -46,8 +46,28 @@ $lots_list = [
         'price' => 5400,
         'img' => 'lot-6.jpg',
     ],
-    
+    //функция//
 ];
+function showPrice($number) { // второй вариант функции
+
+    $number = ceil($number);
+    if ($number < 1000) {
+        $sum = $number;
+    }
+    else {
+        $sum = '';
+        while ($number) {
+            $sum = substr($number,-3) . ' ' . $sum;
+            $number = substr($number,0,-3);
+        }
+    }
+
+    $sum = $sum . '₽';
+
+    return $sum;
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -126,7 +146,9 @@ $lots_list = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$lot['price'];?> <b class="rub">р</b></span> <? //Цена ?>
+
+                            <span class="lot__cost"><?=showPrice($lot['price']);?> </span> <? //Цена ?>
+
                         </div>
                         <div class="lot__timer timer">
                             12:23
