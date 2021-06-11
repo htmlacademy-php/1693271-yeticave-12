@@ -144,3 +144,24 @@ function include_template($name, array $data = []) {
 }
 
 
+/**
+ * Возвращает отформатированную сумму вместе со знаком рубля.
+ * @param int $number - число (сумма).
+ * @return string Форматированная сумма вместе со знаком рубля
+ */
+function showPrice($number):string {
+
+    return number_format(ceil($number),0,'.',' ')  . ' ₽';
+}
+
+
+/**
+ * Фильтрует текст
+ * @param string $str - входящий текст
+ * @return string - отфильтрованный текст
+ */
+function esc($str) {
+    $text = htmlspecialchars($str);
+
+    return $text;
+}
