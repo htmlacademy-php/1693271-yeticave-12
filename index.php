@@ -3,7 +3,7 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Ильгиз'; // укажите здесь ваше имя
 
-$img_path = 'img/'; //для URL картинок 
+$img_path = 'img/'; //для URL картинок
 
 //Список категории (счет начинается с 1):
 $category = [1 => 'Доски и лыжи', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
@@ -46,7 +46,7 @@ $lots_list = [
         'price' => 5400,
         'img' => 'lot-6.jpg',
     ],
-    
+    //функция//
 ];
 function showPrice($number) { // второй вариант функции
 
@@ -215,4 +215,4 @@ function showPrice($number) { // второй вариант функции
 <script src="flatpickr.js"></script>
 <script src="script.js"></script>
 </body>
-</html> 
+</html>
