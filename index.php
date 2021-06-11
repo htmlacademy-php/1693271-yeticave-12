@@ -1,5 +1,6 @@
 <?php
 
+
 $is_auth = rand(0, 1);
 
 $user_name = 'Ильгиз'; // укажите здесь ваше имя
@@ -7,6 +8,7 @@ $img_path = 'img/'; // путь к рисункам. Для сокращения
 
 // массивы данных
 $categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+
 $lots_list = [
     [
         'name' => '2014 Rossignol District Snowboard',
@@ -15,7 +17,9 @@ $lots_list = [
         'img' => 'lot-1.jpg',
     ],
     [
+
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
+
         'category_id' => 1,
         'price' => 159999,
         'img' => 'lot-2.jpg',
@@ -44,6 +48,7 @@ $lots_list = [
         'price' => 5400,
         'img' => 'lot-6.jpg',
     ],
+
 ];
 
 require_once('helpers.php');
@@ -64,3 +69,4 @@ $content = include_template('main.php', ['categories' => $categories, 'lots_list
 $layout = include_template('layout.php', ['is_auth' => $is_auth, 'pageName' => 'YetiCave. Главная', 'user_name' => $user_name, 'content' => $content, 'categories' => $categories]);
 
 print ($layout);
+
