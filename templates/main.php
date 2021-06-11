@@ -1,74 +1,58 @@
 <?php
 $is_auth = rand(0, 1);
 
-$user_name = 'Ильгиз'; // укажите здесь ваше имя
-
-$img_path = 'img/'; //для URL картинок
-
-//Список категории (счет начинается с 1):
-$category = [1 => 'Доски и лыжи', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
-
-//Массив  категории:
-$lots_list = [
-    [
-        'name' => '2014 Rossignol District Snowboard',
-        'category_id' => 1,
-        'price' => 10999,
-        'img' => 'lot-1.jpg',
-    ],
-    [
-        'name' => 'DC Ply Mens 2016/2017 Snowbord',
-        'category_id' => 1,
-        'price' => 159999,
-        'img' => 'lot-2.jpg',
-    ],
-    [
-        'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
-        'category_id' => 2,
-        'price' => 8000,
-        'img' => 'lot-3.jpg',
-    ],
-    [
-        'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
-        'category_id' => 3,
-        'price' => 10999,
-        'img' => 'lot-4.jpg',
-    ],
-    [
-        'name' => 'Куртка для сноуборда DC Mutiny Charocal',
-        'category_id' => 4,
-        'price' => 7500,
-        'img' => 'lot-5.jpg',
-    ],
-    [
-        'name' => 'Маска Oakley Canopy',
-        'category_id' => 6,
-        'price' => 5400,
-        'img' => 'lot-6.jpg',
-    ],
-    //функция//
-];
-function showPrice($number) { // второй вариант функции
-
-    $number = ceil($number);
-    if ($number < 1000) {
-        $sum = $number;
-    }
-    else {
-        $sum = '';
-        while ($number) {
-            $sum = substr($number,-3) . ' ' . $sum;
-            $number = substr($number,0,-3);
-        }
-    }
-
-    $sum = $sum . '₽';
-
-    return $sum;
-}
-
-
+$user_name = 'Ильгиз'; 
 ?>
+
+  <?php
+             $category = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Разное"];
+             [
+                   ["$category" => 0,
+                        "product"=>
+                        [[   "name" => "2014 Rossignol District Snowboard", 
+                             "price" => "10999",
+                             "image"=> '<img src="img/lot-1.jpg">'],
+
+                    ["$category" => 0,
+                        [[   "name" => "Dc Ply Mens 2016/2017 Snowboard",
+                             "price" => "159999",
+                             "image"=> '<img scr="img/lot-2.jpg">',]
+                        ]],
+
+                    ["$category" => 1,
+                        "product" => 
+                        [	"name" => "Крепление Union Contace Pro 2015 года размер L/XL",
+                            "price" => "8000",
+                            "image"=> '<img scr="img/lot-3.jpg">',
+                        ]],
+
+                    ["$category" => 2,
+                        "product" =>
+                         [ 	"name" => "Ботинки для сноуборда DC Mutiny Charocal",
+                            "price" => "10999",
+                            "image"=> '<img scr="img/lot-4.jpg">',
+                        ]],
+
+                    ["$category" => 3,
+                        "product" =>
+                        [   "name" => "Куртка для сноуборда DC Multiny Charocal",
+                            "price" => "7500",
+                            "image"=> '<img scr="img/lot-5.jpg">',
+                        ]], 
+                        
+                    ["$category" => 4,
+                        "product" =>
+                        [ 	"name" => "Маска Oakley Canopy",
+                            "price" => "5400",
+                            "image"=> '<img scr="img/lot-6.jpg">',
+                        ]],
+                    ];
+            ?>
+                    <?php foreach($products as $product): ?>
+                        <?php echo $product["name"] ?>
+                        <?php echo $product["product"]["price"]?>
+                        <?php echo $product["product"]["image"]?>
+                        <?php endforeach; ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -93,26 +77,27 @@ function showPrice($number) { // второй вариант функции
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
+            <?php if($is_auth == 1) {
+            echo '
+                    <div class="user-menu__logged">
+                        <p>#Ilgiz#</p>
+                        <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
+                        <a class="user-menu__logout" href="#">Выход</a>
+                    </div>
+                    ';
+                     } elseif($is_auth == 0) {
+                         echo '
+                    <ul class="user-menu__list">
+                        <li class="user-menu__item">
+                             <a href="#">Регистрация</a>
+                        </li>
+                        <li class="user-menu__item">
+                            <a href="#">Вход</a>
+                         </li>
+                  </ul>';
+                }?>
+            </nav>
 
-        <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
-        <?php if ($is_auth == 1): ?>
-            <div class="user-menu__logged">
-                <p><?=$user_name ?></p>
-                <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
-                <a class="user-menu__logout" href="#">Выход</a>
-            </div>
-        <?php else: ?>
-            <ul class="user-menu__list">
-                <li class="user-menu__item">
-                    <a href="#">Регистрация</a>
-                </li>
-                <li class="user-menu__item">
-                    <a href="#">Вход</a>
-                </li>
-            </ul>
-        <?php endif; ?>
-
-        </nav>
     </div>
 </header>
 
@@ -121,12 +106,14 @@ function showPrice($number) { // второй вариант функции
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <!--заполните этот список из массива категорий-->
-            <?php foreach ($category as $key => $item): ?>
+        <!--заполните этот список из массива категорий-->
+            <?php foreach($categories as $value): ?>
+                <il> <?php echo $categories['$value']?> </il>
+                <?php endforeach; ?>
+                //конец кода
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?=$item; ?></a>  <?php // Имя категории ?>
+                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
             </li>
-            <?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
@@ -135,20 +122,24 @@ function showPrice($number) { // второй вариант функции
         </div>
         <ul class="lots__list">
             <!--заполните этот список из массива с товарами-->
-            <?php foreach ($lots_list as $key => $lot): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
-                    <img src="<?=$img_path . $lot['img'];?>" width="350" height="260" alt="">
+                    <img src="" width="350" height="260" alt="">
                 </div>
                 <div class="lot__info">
-                    <span class="lot__category"> <?= $category[$lot['category_id']];?></span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?=$lot['name'];?></a></h3> <? //Название товара ?>
+                    <span class="lot__category"><?php echo $product ["category"] ?></span>
+                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"> <?php echo $product ["name"] ?> </a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-
-                            <span class="lot__cost"><?=showPrice($lot['price']);?> </span> <? //Цена ?>
-
+                            <span class="lot__cost">цена<
+                            <?php
+                                                            var_dump(round($int, 3));
+                                                            number_format ( float $<="1000" , int $decimals = 3 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
+                                                            number_format ( float $>="1000" , int $decimals = 0 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
+                                                            setlocale(LC_MONETARY, 'ru_RU');
+                                                        ?>
+                            </span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
@@ -156,7 +147,6 @@ function showPrice($number) { // второй вариант функции
                     </div>
                 </div>
             </li>
-            <?php endforeach; ?>
         </ul>
     </section>
 </main>
@@ -166,11 +156,13 @@ function showPrice($number) { // второй вариант функции
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($category as $key => $item): ?>
-            <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$item;?></a> <?php //Название категории ?>
-            </li>
+            <?php foreach($categories as $value): ?>
+            <il> <?php echo $categories['$value']?> </il>
             <?php endforeach; ?>
+            //конец кода
+            <li class="nav__item">
+                <a href="pages/all-lots.html">Название категории</a>
+            </li>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
@@ -218,4 +210,4 @@ function showPrice($number) { // второй вариант функции
 <script src="flatpickr.js"></script>
 <script src="script.js"></script>
 </body>
-</html> 
+</html>
