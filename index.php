@@ -15,6 +15,7 @@ $lots_list = [
         'category_id' => 1,
         'price' => 10999,
         'img' => 'lot-1.jpg',
+        'date_end' => '2021-07-13',
     ],
     [
 
@@ -23,30 +24,35 @@ $lots_list = [
         'category_id' => 1,
         'price' => 159999,
         'img' => 'lot-2.jpg',
+        'date_end' => '2021-08-17',
     ],
     [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'category_id' => 2,
         'price' => 8000,
         'img' => 'lot-3.jpg',
+        'date_end' => '2021-07-21',
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
         'category_id' => 3,
         'price' => 10999,
         'img' => 'lot-4.jpg',
+        'date_end' => '2021-09-30',
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',
         'category_id' => 4,
         'price' => 7500,
         'img' => 'lot-5.jpg',
+        'date_end' => '2021-07-25',
     ],
     [
         'name' => 'Маска Oakley Canopy',
         'category_id' => 6,
         'price' => 5400,
         'img' => 'lot-6.jpg',
+        'date_end' => '2021-08-19',
     ],
 
 ];

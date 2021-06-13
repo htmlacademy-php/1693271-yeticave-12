@@ -32,7 +32,10 @@
                                     <span class="lot__cost"><?=showPrice($lot['price']); ?></span>    <?php // цена ?>
                                 </div>
                                 <div class="lot__timer timer">
-                                    12:23
+                                    <?php timer_lot($lot['date_end']);?> <?php //Время?>
+                                </div>
+                                <div class="timer--finishing">
+                                    <!-- место для функции если timer_lot  < '59:59' -->
                                 </div>
                             </div>
                         </div>

@@ -165,3 +165,14 @@ function esc($str) {
 
     return $text;
 }
+
+/**
+ * Таймер, показыват в ЧЧ:ММ
+ * @param string $timer - обрантый отчет для лота(лот выставлен до...)
+ * @return string - показывает таймер в ЧЧ:ММ
+ */
+function timer_lot($timer) {
+    $timer = strtotime('$date_end') - time();
+
+    return date('B:i', $timer);
+}
