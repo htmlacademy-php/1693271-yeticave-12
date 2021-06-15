@@ -46,37 +46,7 @@
     </header>
 
     <?=$content; ?>
-
-
-            <li class="lots__item lot">
-                <div class="lot__image">
-                    <img src="" width="350" height="260" alt="">
-                </div>
-                <div class="lot__info">
-                    <span class="lot__category"><?php echo $product ["category"] ?></span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html"> <?php echo $product ["name"] ?> </a></h3>
-                    <div class="lot__state">
-                        <div class="lot__rate">
-                            <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">цена<
-                            <?php
-                                                            var_dump(round($int, 3));
-                                                            number_format ( float $<="1000" , int $decimals = 3 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
-                                                            number_format ( float $>="1000" , int $decimals = 0 , string|null $decimal_separator = "." , string|null $thousands_separator = "," ) : string
-                                                            setlocale(LC_MONETARY, 'ru_RU');
-                            ?>
-                            </span>
-                        </div>
-                        <div class="lot__timer timer">
-                        <? echo "$ timer ->  format(%H:%i)"; ?>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </section>
-</main>
-
+ 
 </div>
 
 <footer class="main-footer">
