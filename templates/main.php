@@ -32,7 +32,7 @@
                                     <span class="lot__cost"><?=showPrice($lot['price']); ?></span>    <?php // цена ?>
                                 </div>
                                 <div class="lot__timer timer">
-                                    12:23
+                                    <?php echo 'H:i' ?>
                                 </div>
                             </div>
                         </div>
